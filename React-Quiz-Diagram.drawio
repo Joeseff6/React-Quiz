@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-25T20:59:58.716Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="VMWxIFXFYiVcejX0iIpY" version="17.2.1" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-04-25T21:03:55.814Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="7EqkTKv_MoO5Lb7hSsyu" version="17.2.1" type="github" pages="2">
   <diagram id="Ps3tq3tIgRGYSCBPlIF2" name="Page-1">
     <mxGraphModel dx="1422" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -229,6 +229,21 @@
         <mxCell id="5V4dlAd74O5wEWOTwZHI-28" value="Display ending message, display Highscore component" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="342.5" y="1320" width="135" height="90" as="geometry" />
         </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5V4dlAd74O5wEWOTwZHI-30" target="5V4dlAd74O5wEWOTwZHI-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5V4dlAd74O5wEWOTwZHI-30" target="5V4dlAd74O5wEWOTwZHI-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-30" value="Highscore.js" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1470" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5V4dlAd74O5wEWOTwZHI-31" target="5V4dlAd74O5wEWOTwZHI-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-31" value="Fetch top 10 scores from database" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1580" width="120" height="60" as="geometry" />
+        </mxCell>
         <mxCell id="5V4dlAd74O5wEWOTwZHI-33" value="Fetch questions from database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="670" width="120" height="60" as="geometry" />
         </mxCell>
@@ -238,6 +253,24 @@
             <mxPoint x="270" y="860" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-35" value="Display scores in table" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5V4dlAd74O5wEWOTwZHI-37" target="5V4dlAd74O5wEWOTwZHI-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-37" value="User inputs initials and submits" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1580" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5V4dlAd74O5wEWOTwZHI-41" target="5V4dlAd74O5wEWOTwZHI-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-41" value="Update database with score, re-fetch top 10 scores" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5V4dlAd74O5wEWOTwZHI-43" value="Display scores in table" style="ellipse;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1810" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
