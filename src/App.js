@@ -9,6 +9,12 @@ import "./App.css";
 class App extends React.Component {
   state = { open: false }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({open: true})
+    }, 750)
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -25,7 +31,7 @@ class App extends React.Component {
             </h2>
           </div>
         </div>
-        <Collapse>
+        <Collapse in={this.state.open}>
           <div>
             <button className="btn option-button d-block m-auto mb-5">
               Start Quiz
