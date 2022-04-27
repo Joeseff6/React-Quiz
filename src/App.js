@@ -14,13 +14,17 @@ class App extends React.Component {
             Full Stack Quiz with React
           </h1>
         </header>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mb-5">
           <div className="col-8">
             <h2 className="text-center">
               Test your full stack and React.js knowledge in a race against
               others to achieve the highest score in the shortest time!
             </h2>
           </div>
+        </div>
+        <div>
+          <button className="btn option-button d-block m-auto mb-5">Start Quiz</button>
+          <a className="btn option-button d-block m-auto">Highscore Page</a>
         </div>
         {/* <HighscoreView />
         <Homepage />
