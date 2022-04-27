@@ -9,10 +9,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>This is the app component</h1>
-        <HighscoreView />
+        {/* <HighscoreView />
         <Homepage />
         <MainView />
-        <Quiz />
+        <Quiz /> */}
       </div>
     )
   }
