@@ -3,18 +3,31 @@ import HighscoreView from "./components/HighscoreView";
 import Homepage from "./components/Homepage";
 import MainView from "./components/MainView";
 import Quiz from "./components/Quiz";
+import "./App.css";
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <h1>This is the app component</h1>
+      <div className="container-fluid">
+        <header className="mt-3 mb-5">
+          <h1 className="text-center" style={{ fontSize: "3em" }}>
+            Full Stack Quiz with React
+          </h1>
+        </header>
+        <div className="row justify-content-center">
+          <div className="col-8">
+            <h2 className="text-center">
+              Test your full stack and React.js knowledge in a race against
+              others to achieve the highest score in the shortest time!
+            </h2>
+          </div>
+        </div>
         {/* <HighscoreView />
         <Homepage />
         <MainView />
         <Quiz /> */}
       </div>
-    )
+    );
   }
 }
 
