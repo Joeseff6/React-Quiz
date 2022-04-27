@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #FFDED6;
+  background-color: #FFEFEB;
 }
 
 h1, h2 {
@@ -16,7 +16,7 @@ a {
 
 .option-button {
   background-color: #E02900;
-  color: #FFDED6;
+  color: #FFEFEB;
   font-family: 'Lato', sans-serif;
   font-size: 1.5em;
   border-radius: 25px;
