@@ -3,9 +3,12 @@ import HighscoreView from "./components/HighscoreView";
 import Homepage from "./components/Homepage";
 import MainView from "./components/MainView";
 import Quiz from "./components/Quiz";
+import Collapse from "react-bootstrap/Collapse";
 import "./App.css";
 
 class App extends React.Component {
+  state = { open: false }
+
   render() {
     return (
       <div className="container-fluid">
@@ -22,10 +25,14 @@ class App extends React.Component {
             </h2>
           </div>
         </div>
-        <div>
-          <button className="btn option-button d-block m-auto mb-5">Start Quiz</button>
-          <a className="btn option-button d-block m-auto">Highscore Page</a>
-        </div>
+        <Collapse>
+          <div>
+            <button className="btn option-button d-block m-auto mb-5">
+              Start Quiz
+            </button>
+            <a className="btn option-button d-block m-auto">Highscore Page</a>
+          </div>
+        </Collapse>
         {/* <HighscoreView />
         <Homepage />
         <MainView />
