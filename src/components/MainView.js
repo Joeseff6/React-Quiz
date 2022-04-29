@@ -12,7 +12,8 @@ class MainView extends React.Component {
     }, 750)
   }
 
-  onQuizStart = () => {
+  onStartClick = () => {
+    this.setState({dropIn: false})
     setTimeout(() => {
       this.setState({ quizStart: true });
     }, 1000);
