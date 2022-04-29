@@ -15,7 +15,7 @@ class App extends React.Component {
           </h1>
         </header>
         <MainView />
-        <HighscoreView />
+        {/* <HighscoreView /> */}
       </div>
     );
   }
