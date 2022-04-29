@@ -47,7 +47,13 @@ class MainView extends React.Component {
         </>
       );
     } else {
-      return <Quiz />;
+      return (
+        <div className="row justify-content-center">
+          <div className="col-8">
+            <Quiz />
+          </div>
+        </div>
+      );
     }
   }
 
