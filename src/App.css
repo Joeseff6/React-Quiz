@@ -10,6 +10,10 @@ h1, h2 {
   color: #FF481F;
 }
 
+h3, h4 {
+  font-family: 'Lato', sans-serif;
+}
+
 a {
   width: 200px;
 }
