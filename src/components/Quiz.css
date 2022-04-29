@@ -1,0 +1,12 @@
+#question {
+  background-color: #FF6947;
+}
+
+.choice {
+  background-color: #E02900;
+}
+
+#question, .choice {
+  color: #FFDED6;
+}
+
