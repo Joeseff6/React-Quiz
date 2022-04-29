@@ -1,0 +1,39 @@
+{
+  "players": [
+    {
+      "initials": "JMS",
+      "score": 10
+    },
+    {
+      "initials": "FOO",
+      "score": 15
+    },
+    {
+      "initials": "BAR",
+      "score": 5
+    }
+  ],
+
+  "questions": [
+    {
+      "question": "What is React.js?",
+      "choices": [
+        "A frontend library using javascript",
+        "A human reacting to frontend use",
+        "A backend library making server calls",
+        "A css library to assist out-the-box styling"
+      ],
+      "answer": "A frontend library using javascript"
+    },
+    {
+      "question": "Why is React.js so popular?",
+      "choices": [
+        "Because it was developed by Facebook",
+        "It is not a popular library",
+        "User interfaces can be made more efficiently by using a virtual DOM to update states as needed",
+        "React.js completely replaces javascript using its own syntax"
+      ],
+      "answer": "User interfaces can be made more efficiently by using a virtual DOM to update states as needed"
+    }
+  ]
+}
