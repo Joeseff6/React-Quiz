@@ -17,22 +17,27 @@ class Quiz extends React.Component {
   }
 
   renderJSX() {
-    if (!this.state.questions.length) return "Loading";
-    return (
-      <>
-        <div id="question">
-          <h3 className="text-center">{this.state.selectedQuestion.question}</h3>
-        </div>
+    if (!this.state.questions.length) {
+      return "Loading";
+    } else {
+      return (
+        <>
+          <div id="question" className="mb-3 d-flex justify-content-center align-items-center">
+            <h3 className="text-center">
+              {this.state.selectedQuestion.question}
+            </h3>
+          </div>
 
-        {this.state.selectedQuestion.choices.map((choice) => {
-          return (
-            <div className="choice" key={choice}>
-              <h4>{choice}</h4>
-            </div>
-          );
-        })}
-      </>
-    );
+          {this.state.selectedQuestion.choices.map((choice) => {
+            return (
+              <div className="choice" key={choice}>
+                <h4>{choice}</h4>
+              </div>
+            );
+          })}
+        </>
+      );
+    }
   }
 
   render() {

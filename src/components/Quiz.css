@@ -1,5 +1,7 @@
 #question {
   background-color: #FF6947;
+  height: 125px;
+  border-radius: 36px;
 }
 
 .choice {
