@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
+import selectQuestion from "../helper/selectQuestion";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
@@ -9,10 +10,12 @@ class Quiz extends React.Component {
   async componentDidMount() {
     let response = await axios.get("http://localhost:5000/questions");
     let questions = response.data;
-    let numberOfQuestions = questions.length;
-    let randomNumber = Math.floor(Math.random() * numberOfQuestions);
-    let selectedQuestion = questions[randomNumber];
+    let selectedQuestion = selectQuestion(questions);
     this.setState({ questions: questions, selectedQuestion: selectedQuestion });
+    setInterval(() => {
+      let newTime = this.state.timer - 1;
+      this.setState({ timer: newTime });
+    }, 1000)
   }
 
   renderJSX() {
