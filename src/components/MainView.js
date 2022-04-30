@@ -49,7 +49,7 @@ class MainView extends React.Component {
     } else {
       return (
         <div className="row justify-content-center">
-          <div className="col-8">
+          <div className="col-6">
             <Quiz />
           </div>
         </div>
