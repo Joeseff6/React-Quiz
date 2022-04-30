@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
@@ -18,7 +19,11 @@ class Quiz extends React.Component {
 
   renderJSX() {
     if (!this.state.questions.length) {
-      return "Loading";
+      return (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" variant="danger"/>;
+        </div>
+      )
     } else {
       return (
         <>
