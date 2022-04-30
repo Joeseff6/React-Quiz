@@ -4,7 +4,11 @@ import Spinner from "react-bootstrap/Spinner";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
-  state = { questions: [], selectedQuestion: {} };
+  state = { questions: [],
+    selectedQuestion: {},
+    score: 0,
+    timer: 60,
+  };
 
   async componentDidMount() {
     let response = await axios.get("http://localhost:5000/questions");
@@ -32,7 +36,7 @@ class Quiz extends React.Component {
               <h2 className="">Total score: 0</h2>
             </div>
             <div className="col d-flex justify-content-center">
-              <h2>Time: 0</h2>
+              <h2>Time: {this.state.timer} {this.state.timer > 1 ? "secs" : "sec"}</h2>
             </div>
           </div>
           <div
