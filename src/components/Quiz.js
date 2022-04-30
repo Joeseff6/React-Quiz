@@ -22,7 +22,7 @@ class Quiz extends React.Component {
     } else {
       return (
         <>
-          <div id="question" className="mb-3 d-flex justify-content-center align-items-center">
+          <div id="question" className="mb-3 py-5 d-flex justify-content-center align-items-center">
             <h3 className="text-center">
               {this.state.selectedQuestion.question}
             </h3>
@@ -30,8 +30,8 @@ class Quiz extends React.Component {
 
           {this.state.selectedQuestion.choices.map((choice) => {
             return (
-              <div className="choice" key={choice}>
-                <h4>{choice}</h4>
+              <div className="choice my-3 px-3 py-3 d-flex align-items-center" key={choice}>
+                <span>{choice}</span>
               </div>
             );
           })}
