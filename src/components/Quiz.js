@@ -21,13 +21,24 @@ class Quiz extends React.Component {
     if (!this.state.questions.length) {
       return (
         <div className="d-flex justify-content-center">
-          <Spinner animation="grow" variant="danger"/>;
+          <Spinner animation="grow" variant="danger" />;
         </div>
-      )
+      );
     } else {
       return (
         <>
-          <div id="question" className="mb-3 py-5 d-flex justify-content-center align-items-center">
+          <div className="row">
+            <div className="col d-flex justify-content-center">
+              <h2 className="">Total score: 0</h2>
+            </div>
+            <div className="col d-flex justify-content-center">
+              <h2>Time: 0</h2>
+            </div>
+          </div>
+          <div
+            id="question"
+            className="mb-3 py-5 d-flex justify-content-center align-items-center"
+          >
             <h3 className="text-center">
               {this.state.selectedQuestion.question}
             </h3>
@@ -35,7 +46,10 @@ class Quiz extends React.Component {
 
           {this.state.selectedQuestion.choices.map((choice) => {
             return (
-              <div className="choice my-3 px-3 py-3 d-flex align-items-center" key={choice}>
+              <div
+                className="choice my-3 px-3 py-3 d-flex align-items-center"
+                key={choice}
+              >
                 <span>{choice}</span>
               </div>
             );
