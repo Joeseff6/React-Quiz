@@ -15,16 +15,6 @@ class Quiz extends React.Component {
     this.runTimer();
   }
 
-  onChoiceClick = (e) => {
-    let selectedChoice = e.target.innerHTML;
-    if (selectedChoice === this.state.selectedQuestion.answer) {
-      let newScore = this.state.score + 1;
-      this.setState({ score: newScore });
-    } else {
-      // TODO: Write logic for incorrect answers
-    }
-  };
-
   runTimer = () => {
     let time = 60;
     document.getElementById("timer").innerHTML = `Time: ${time} secs`;
@@ -37,6 +27,24 @@ class Quiz extends React.Component {
     }, 1000);
   };
 
+  onChoiceClick = (e) => {
+    let selectedChoice = e.target.innerHTML;
+    if (selectedChoice === this.state.selectedQuestion.answer) {
+      let newScore = this.state.score + 1;
+      this.setState({ score: newScore });
+    } else {
+      // TODO: Write logic for incorrect answers
+    }
+    this.displayNextQuestion()
+  };
+
+  displayNextQuestion = () => {
+    let questionsCopy = this.state.questions.slice(0);
+    questionsCopy.splice(this.state.selectedQuestion.index,1)
+    let selectedQuestion = selectQuestion(questionsCopy);
+    this.setState({ questions: questionsCopy, selectedQuestion: selectedQuestion })
+  }
+
   randomizeChoices = (choices) => {
     let choicesCopy = choices.slice(0);
     let choicesArray = [];
@@ -46,11 +54,11 @@ class Quiz extends React.Component {
       choicesArray.push(choicesCopy[randomIndex]);
       choicesCopy.splice(randomIndex, 1);
     }
-    return choicesArray.map((choice) => {
+    return choicesArray.map((choice, index) => {
       return (
         <div
           className="choice my-3 px-3 py-3 d-flex align-items-center"
-          key={choice}
+          key={index}
           onClick={(e) => this.onChoiceClick(e)}
         >
           {choice}
