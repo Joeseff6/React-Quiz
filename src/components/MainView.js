@@ -2,24 +2,39 @@ import React from "react";
 import Quiz from "./Quiz";
 import Collapse from "react-bootstrap/Collapse";
 
-
 class MainView extends React.Component {
-  state = { quizStart: false, dropIn: false };
+  state = { quizStart: false, 
+    dropIn: false,
+    countDown: false,
+    countDownMessage: "",
+  };
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({dropIn: true})
-    }, 750)
+      this.setState({ dropIn: true });
+    }, 750);
   }
 
   onStartClick = () => {
-    this.setState({dropIn: false})
+    this.setState({ dropIn: false });
+    setTimeout(() => {
+      this.setState({ countDown: true });
+      this.renderCountdownMessage();
+    }, 250);
     setTimeout(() => {
       this.setState({ quizStart: true });
-    }, 1000);
+    }, 2250);
   };
 
-
+  renderCountdownMessage = () => {
+    let countDownMessageArray = ["Ready", "Set", "Go!"];
+    let i = 0;
+    let iteratorId = setInterval(() => {
+      if (i === 2) clearInterval(iteratorId)
+      this.setState({ countDownMessage: countDownMessageArray[i] });
+      i++;
+    }, 500)
+  }
 
   renderJSX() {
     if (!this.state.quizStart) {
@@ -33,6 +48,7 @@ class MainView extends React.Component {
               </h2>
             </div>
           </div>
+          {this.state.countDown ? <h2 className="text-center">{this.state.countDownMessage}</h2> : ""}
           <Collapse in={this.state.dropIn}>
             <div>
               <button
