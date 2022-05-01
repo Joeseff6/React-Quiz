@@ -28,7 +28,7 @@ class Quiz extends React.Component {
     let time = 60;
     document.getElementById("timer").innerHTML = `Time: ${time} secs`;
     let timerId = setInterval(() => {
-      if (time <= 1) clearInterval(timerId);
+      if (time < 1) clearInterval(timerId);
       document.getElementById("timer").innerHTML = `Time: ${time} ${
         time > 1 ? "secs" : "sec"
       }`;
