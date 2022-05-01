@@ -15,8 +15,12 @@ class Quiz extends React.Component {
     setInterval(() => {
       let newTime = this.state.timer - 1;
       this.setState({ timer: newTime });
-    }, 1000)
+    }, 1000);
   }
+
+  onChoiceClick = (e) => {
+    console.log(e.target.innerHTML);
+  };
 
   renderJSX() {
     if (!this.state.questions.length) {
@@ -52,8 +56,9 @@ class Quiz extends React.Component {
               <div
                 className="choice my-3 px-3 py-3 d-flex align-items-center"
                 key={choice}
+                onClick={(e) => this.onChoiceClick(e)}
               >
-                <span>{choice}</span>
+                {choice}
               </div>
             );
           })}
