@@ -21,6 +21,7 @@ class Quiz extends React.Component {
       let newScore = this.state.score + 1;
       this.setState({ score: newScore });
     } else {
+      // TODO: Write logic for incorrect answers
     }
   };
 
