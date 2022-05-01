@@ -1,14 +1,17 @@
 {
   "players": [
     {
+      "id": 1,
       "initials": "JMS",
       "score": 10
     },
     {
+      "id": 2,
       "initials": "FOO",
       "score": 15
     },
     {
+      "id": 3,
       "initials": "BAR",
       "score": 5
     }
@@ -16,6 +19,7 @@
 
   "questions": [
     {
+      "id": 1,
       "question": "What is React.js?",
       "choices": [
         "A frontend library using javascript",
@@ -26,6 +30,7 @@
       "answer": "A frontend library using javascript"
     },
     {
+      "id": 2,
       "question": "Why is React.js so popular?",
       "choices": [
         "Because it was developed by Facebook",
