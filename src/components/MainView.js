@@ -65,7 +65,7 @@ class MainView extends React.Component {
       return (
         <div className="row justify-content-center">
           <div className="col-6">
-            <Quiz />
+            <Quiz score={this.props.score} updateScore={this.props.updateScore}/>
           </div>
         </div>
       );

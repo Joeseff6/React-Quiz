@@ -5,7 +5,7 @@ import selectQuestion from "../helper/selectQuestion";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
-  state = { questions: [], selectedQuestion: {}, score: 0 };
+  state = { questions: [], selectedQuestion: {} };
 
   async componentDidMount() {
     let response = await axios.get("http://localhost:5000/questions");
@@ -30,8 +30,7 @@ class Quiz extends React.Component {
   onChoiceClick = (e) => {
     let selectedChoice = e.target.innerHTML;
     if (selectedChoice === this.state.selectedQuestion.answer) {
-      let newScore = this.state.score + 1;
-      this.setState({ score: newScore });
+      this.props.updateScore();
     } else {
       // TODO: Write logic for incorrect answers
     }
@@ -79,7 +78,7 @@ class Quiz extends React.Component {
         <>
           <div className="row">
             <div className="col d-flex justify-content-center">
-              <h2 className="">Total score: {this.state.score}</h2>
+              <h2 className="">Total score: {this.props.score}</h2>
             </div>
             <div className="col d-flex justify-content-center">
               <h2 id="timer"></h2>

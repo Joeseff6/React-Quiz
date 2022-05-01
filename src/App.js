@@ -4,7 +4,12 @@ import MainView from "./components/MainView";
 import "./App.css";
 
 class App extends React.Component {
-  state = { }
+  state = { score: 0 }
+
+  updateScore = () => {
+    let newScore = this.state.score + 1;
+    this.setState({ score: newScore });
+  }
 
   render() {
     return (
@@ -14,7 +19,7 @@ class App extends React.Component {
             Full Stack Quiz with React
           </h1>
         </header>
-        <MainView />
+        <MainView score={this.state.score} updateScore={this.updateScore}/>
         {/* <HighscoreView /> */}
       </div>
     );
