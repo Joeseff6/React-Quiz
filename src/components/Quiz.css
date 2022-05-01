@@ -18,7 +18,8 @@ span {
 }
 
 .choice.correct {
-  background-color: green;
+  background-color: #00CC00;
+  color: black;
 }
 
 .choice:hover {
