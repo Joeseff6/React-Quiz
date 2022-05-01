@@ -17,6 +17,10 @@ span {
   user-select: none;  
 }
 
+.choice.correct {
+  background-color: green;
+}
+
 .choice:hover {
   cursor: pointer;
 }
