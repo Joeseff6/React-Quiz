@@ -17,10 +17,10 @@ class Quiz extends React.Component {
 
   runTimer = () => {
     let time = 60;
-    document.getElementById("timer").innerHTML = `Time: ${time} secs`;
+    document.getElementById("timer").innerText = `Time: ${time} secs`;
     let timerId = setInterval(() => {
       if (time < 1) clearInterval(timerId);
-      document.getElementById("timer").innerHTML = `Time: ${time} ${
+      document.getElementById("timer").innerText = `Time: ${time} ${
         time > 1 ? "secs" : "sec"
       }`;
       time--;
@@ -28,13 +28,20 @@ class Quiz extends React.Component {
   };
 
   onChoiceClick = (e) => {
-    let selectedChoice = e.target.innerHTML;
+    let selectedChoice = e.target.innerText;
+    let choiceElements = document.querySelectorAll(`.choice`);
+    let correctIndex = null;
+    choiceElements.forEach((element,index) => {
+      if (element.innerText === this.state.selectedQuestion.answer) correctIndex = index;
+    })
+    document.querySelector(`.choice[data-index="${correctIndex}"]`).classList.add("correct");
     if (selectedChoice === this.state.selectedQuestion.answer) {
-      this.props.updateScore();
+      // this.props.updateScore();
     } else {
       // TODO: Write logic for incorrect answers
     }
-    this.displayNextQuestion()
+
+    // this.displayNextQuestion()
   };
 
   displayNextQuestion = () => {
@@ -59,6 +66,7 @@ class Quiz extends React.Component {
           className="choice my-3 px-3 py-3 d-flex align-items-center"
           key={index}
           onClick={(e) => this.onChoiceClick(e)}
+          data-index={index}
         >
           {choice}
         </div>
@@ -87,6 +95,7 @@ class Quiz extends React.Component {
           <div
             id="question"
             className="mb-3 py-5 d-flex justify-content-center align-items-center"
+            data-index={this.state.selectedQuestion.index}
           >
             <h3 className="text-center">
               {this.state.selectedQuestion.question}
@@ -99,6 +108,7 @@ class Quiz extends React.Component {
   }
 
   render() {
+    console.log("render")
     return this.renderJSX();
   }
 }
