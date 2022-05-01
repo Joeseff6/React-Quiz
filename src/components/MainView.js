@@ -6,7 +6,6 @@ class MainView extends React.Component {
   state = { quizStart: false, 
     dropIn: false,
     countDown: false,
-    countDownMessage: "",
   };
 
   componentDidMount() {
@@ -31,7 +30,7 @@ class MainView extends React.Component {
     let i = 0;
     let iteratorId = setInterval(() => {
       if (i === 2) clearInterval(iteratorId)
-      this.setState({ countDownMessage: countDownMessageArray[i] });
+      document.getElementById("countdown").innerHTML = countDownMessageArray[i];
       i++;
     }, 500)
   }
@@ -48,7 +47,7 @@ class MainView extends React.Component {
               </h2>
             </div>
           </div>
-          {this.state.countDown ? <h2 className="text-center">{this.state.countDownMessage}</h2> : ""}
+          {this.state.countDown ? <h2 className="text-center" id="countdown"></h2> : ""}
           <Collapse in={this.state.dropIn}>
             <div>
               <button
