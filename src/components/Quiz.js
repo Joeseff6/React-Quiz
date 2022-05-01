@@ -15,6 +15,12 @@ class Quiz extends React.Component {
     this.runTimer();
   }
 
+  componentDidUpdate() {
+    if (document.querySelector(".correct")) {
+      document.querySelector(".correct").classList.remove("correct");
+    }
+  }
+
   runTimer = () => {
     let time = 60;
     document.getElementById("timer").innerText = `Time: ${time} secs`;
