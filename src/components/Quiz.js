@@ -35,13 +35,11 @@ class Quiz extends React.Component {
       if (element.innerText === this.state.selectedQuestion.answer) correctIndex = index;
     })
     document.querySelector(`.choice[data-index="${correctIndex}"]`).classList.add("correct");
-    if (selectedChoice === this.state.selectedQuestion.answer) {
-      // this.props.updateScore();
-    } else {
-      // TODO: Write logic for incorrect answers
-    }
-
-    // this.displayNextQuestion()
+    let correct = selectedChoice === this.state.selectedQuestion.answer;
+    setTimeout(() => {
+      this.props.updateScore(correct);
+      this.displayNextQuestion()
+    }, 1000)
   };
 
   displayNextQuestion = () => {

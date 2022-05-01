@@ -6,9 +6,11 @@ import "./App.css";
 class App extends React.Component {
   state = { score: 0 }
 
-  updateScore = () => {
-    let newScore = this.state.score + 1;
-    this.setState({ score: newScore });
+  updateScore = (correct) => {
+    if (correct) {
+      let newScore = this.state.score + 1;
+      this.setState({ score: newScore });
+    }
   }
 
   render() {
