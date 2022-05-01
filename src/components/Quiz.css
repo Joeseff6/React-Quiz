@@ -11,9 +11,10 @@ span {
 .choice {
   background-color: #E02900;
   border-radius: 25px;
+  font-size: x-large;
 }
 
-#question, .choice {
+h3, .choice {
   color: #FFDED6;
+  font-family: 'Lato', sans-serif;
 }
-
