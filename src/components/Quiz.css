@@ -11,6 +11,10 @@ span {
   background-color: #E02900;
   border-radius: 25px;
   font-size: x-large;
+  -webkit-user-select: none;
+  -moz-user-select: none;   
+  -ms-user-select: none;   
+  user-select: none;  
 }
 
 .choice:hover {
