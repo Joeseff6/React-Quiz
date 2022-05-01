@@ -19,7 +19,14 @@ class Quiz extends React.Component {
   }
 
   onChoiceClick = (e) => {
-    console.log(e.target.innerHTML);
+    let selectedChoice = e.target.innerHTML;
+    if (selectedChoice === this.state.selectedQuestion.answer) {
+      let newScore = this.state.score + 1;
+      this.setState({ score: newScore });
+    } else {
+      let newTime = this.state.timer - 2;
+      this.setState({ timer: newTime });
+    }
   };
 
   renderJSX() {
@@ -34,7 +41,7 @@ class Quiz extends React.Component {
         <>
           <div className="row">
             <div className="col d-flex justify-content-center">
-              <h2 className="">Total score: 0</h2>
+              <h2 className="">Total score: {this.state.score}</h2>
             </div>
             <div className="col d-flex justify-content-center">
               <h2>
