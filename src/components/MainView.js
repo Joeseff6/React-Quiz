@@ -1,6 +1,7 @@
 import React from "react";
 import Quiz from "./Quiz";
 import Collapse from "react-bootstrap/Collapse";
+import { Link } from "react-router-dom";
 
 class MainView extends React.Component {
   state = { quizStart: false, 
@@ -56,7 +57,7 @@ class MainView extends React.Component {
               >
                 Start Quiz
               </button>
-              <a className="btn option-button d-block m-auto">Highscore Page</a>
+              <Link className="btn option-button d-block m-auto" to="/highscores">Highscore Page</Link>
             </div>
           </Collapse>
         </>
