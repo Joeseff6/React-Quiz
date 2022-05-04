@@ -22,7 +22,7 @@
       "id": 1,
       "question": "What is React.js?",
       "choices": [
-        "A frontend library using javascript",
+        "A Javascript library used for creating user interfaces",
         "A human reacting to frontend use",
         "A backend library making server calls",
         "A css library to assist out-the-box styling"
