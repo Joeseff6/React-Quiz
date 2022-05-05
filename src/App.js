@@ -4,20 +4,13 @@ import { Outlet, Link } from "react-router-dom";
 import "./App.css";
 
 class App extends React.Component {
-  state = { score: 0, dropIn: false };
+  state = { dropIn: false };
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({ dropIn: true });
     }, 750);
   }
-
-  updateScore = (correct) => {
-    if (correct) {
-      let newScore = this.state.score + 1;
-      this.setState({ score: newScore });
-    }
-  };
 
   render() {
     return (

@@ -6,7 +6,7 @@ import Choices from "./Choices";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
-  state = { questions: [], selectedQuestion: {} };
+  state = { score: 0, questions: [], selectedQuestion: {} };
 
   async componentDidMount() {
     let response = await axios.get("http://localhost:5000/questions");
@@ -47,9 +47,16 @@ class Quiz extends React.Component {
       .classList.add("correct");
     let correct = selectedChoice === this.state.selectedQuestion.answer;
     setTimeout(() => {
-      this.props.updateScore(correct);
+      this.updateScore(correct);
       this.displayNextQuestion();
     }, 1000);
+  };
+
+  updateScore = (correct) => {
+    if (correct) {
+      let newScore = this.state.score + 1;
+      this.setState({ score: newScore });
+    }
   };
 
   displayNextQuestion = () => {
@@ -76,7 +83,7 @@ class Quiz extends React.Component {
             <div className="col-6">
               <div className="row mt-5 mb-3">
                 <div className="col-6">
-                  <h2 className="text-center">Score:</h2>
+                  <h2 className="text-center">Score: {this.state.score}</h2>
                 </div>
                 <div className="col-6">
                   <h2 className="text-center" id="timer">
