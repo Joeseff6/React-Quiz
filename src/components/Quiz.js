@@ -16,12 +16,6 @@ class Quiz extends React.Component {
     this.runTimer();
   }
 
-  componentDidUpdate() {
-    if (document.querySelector(".correct")) {
-      document.querySelector(".correct").classList.remove("correct");
-    }
-  }
-
   runTimer = () => {
     let time = 60;
     document.getElementById("timer").innerText = `Time: ${time} secs`;
@@ -33,6 +27,12 @@ class Quiz extends React.Component {
       time--;
     }, 1000);
   };
+
+  componentDidUpdate() {
+    if (document.querySelector(".correct")) {
+      document.querySelector(".correct").classList.remove("correct");
+    }
+  }
 
   onChoiceClick = (e) => {
     let selectedChoice = e.target.innerText;
@@ -79,7 +79,9 @@ class Quiz extends React.Component {
                   <h2 className="text-center">Score:</h2>
                 </div>
                 <div className="col-6">
-                  <h2 className="text-center">Time:</h2>
+                  <h2 className="text-center" id="timer">
+                    Time:
+                  </h2>
                 </div>
               </div>
               <div
@@ -91,7 +93,10 @@ class Quiz extends React.Component {
                   {this.state.selectedQuestion.question}
                 </h3>
               </div>
-              <Choices selectedQuestion={this.state.selectedQuestion} />
+              <Choices
+                selectedQuestion={this.state.selectedQuestion}
+                onChoiceClick={this.onChoiceClick}
+              />
             </div>
           </div>
         </React.Fragment>

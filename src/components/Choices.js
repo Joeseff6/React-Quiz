@@ -1,4 +1,4 @@
-const Choices = ({ selectedQuestion }) => {
+const Choices = ({ selectedQuestion, onChoiceClick }) => {
   const randomizeChoices = (choices) => {
     let choicesCopy = choices.slice(0);
     let choicesArray = [];
@@ -18,7 +18,7 @@ const Choices = ({ selectedQuestion }) => {
         <div
           className="choice my-3 px-3 py-3 d-flex align-items-center"
           key={index}
-          onClick={(e) => this.onChoiceClick(e)}
+          onClick={(e) => onChoiceClick(e)}
           data-index={index}
         >
           {choice}
