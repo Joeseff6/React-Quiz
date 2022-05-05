@@ -47,16 +47,12 @@ class Quiz extends React.Component {
       .classList.add("correct");
     let correct = selectedChoice === this.state.selectedQuestion.answer;
     setTimeout(() => {
-      this.updateScore(correct);
+      if (correct) {
+        let newScore = this.state.score + 1;
+        this.setState({ score: newScore });
+      }
       this.displayNextQuestion();
     }, 1000);
-  };
-
-  updateScore = (correct) => {
-    if (correct) {
-      let newScore = this.state.score + 1;
-      this.setState({ score: newScore });
-    }
   };
 
   displayNextQuestion = () => {
