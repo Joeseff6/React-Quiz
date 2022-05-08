@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import selectQuestion from "../helper/selectQuestion";
-import Choices from "./Choices";
+import Choices from "../components/Choices";
+import { useLocation } from "react-router-dom";
 import "./Quiz.css";
 
 class Quiz extends React.Component {
@@ -17,10 +18,13 @@ class Quiz extends React.Component {
   }
 
   runTimer = () => {
-    let time = 60;
+    console.log(useLocation())
+    let time = 5;
     document.getElementById("timer").innerText = `Time: ${time} secs`;
     let timerId = setInterval(() => {
-      if (time < 1) clearInterval(timerId);
+      if (time === 0) {
+        clearInterval(timerId);
+      }
       document.getElementById("timer").innerText = `Time: ${time} ${
         time > 1 ? "secs" : "sec"
       }`;
