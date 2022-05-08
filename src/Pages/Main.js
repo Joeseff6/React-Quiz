@@ -1,48 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
-import { Link } from "react-router-dom";
-class Main extends React.Component {
-  state = { dropIn: false, countdown: false };
+import { Link, useNavigate } from "react-router-dom";
 
-  componentDidMount() {
+const Main = () => {
+  const [dropIn, setDropIn ] = useState(false);
+  const [countdown, setCountdown ] = useState(false);
+  let navigate = useNavigate();
+
+  useEffect(() => {
     setTimeout(() => {
-      this.setState({ dropIn: true });
+      setDropIn(true);
     }, 750);
-  }
+  }, [])
 
-  onStartClick = () => {
-    console.log("hello");
-    console.log(this.state.dropIn);
-    this.setState({ dropIn: false });
+  const onStartClick = () => {
+    setDropIn(false);
+    setTimeout(() => {
+      setCountdown(true);
+      runCountdownMessage()
+    }, 500)
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <div className="row justify-content-center mb-5">
-          <div className="col-8">
-            <h2 className="text-center">
-              Test your full stack and React.js knowledge in a race against
-              others to achieve the highest score in the shortest time!
-            </h2>
-          </div>
-        </div>
-        <Collapse in={this.state.dropIn}>
-          <div>
-            <button
-              className="btn option-button d-block m-auto mb-5"
-              onClick={this.onStartClick}
-            >
-              Start Quiz
-            </button>
-            <Link className="btn option-button d-block m-auto" to="/highscores">
-              Highscore Page
-            </Link>
-          </div>
-        </Collapse>
-      </React.Fragment>
-    );
+  const runCountdownMessage = () => {
+    let countdownArray = ["Ready", "Set", "Go!"];
+    let i = 0;
+    let intervalId = setInterval(() =>{
+      if (i < countdownArray.length) {
+        document.getElementById("countdownMessage").innerText = countdownArray[i]
+        i++;
+      } else {
+        clearInterval(intervalId);
+        navigate("/quiz");
+      }
+    }, 500)
   }
+
+  return (
+    <React.Fragment>
+      <div className="row justify-content-center mb-5">
+        <div className="col-8">
+          <h2 className="text-center">
+            Test your full stack and React.js knowledge in a race against
+            others to achieve the highest score in the shortest time!
+          </h2>
+        </div>
+      </div>
+      {countdown ? <h2 id="countdownMessage" className="text-center"></h2> : ""}
+      <Collapse in={dropIn}>
+        <div>
+          <button
+            className="btn option-button d-block m-auto mb-5"
+            onClick={onStartClick}
+          >
+            Start Quiz
+          </button>
+          <Link className="btn option-button d-block m-auto" to="/highscores">
+            Highscore Page
+          </Link>
+        </div>
+      </Collapse>
+    </React.Fragment>
+  );
 }
 
 export default Main;
