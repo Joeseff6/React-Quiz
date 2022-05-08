@@ -7,7 +7,7 @@ import Highscore from "./Pages/Highscore";
 import "./App.css";
 
 class App extends React.Component {
-
+  state = { score: 0 }
 
   render() {
     return (
@@ -21,7 +21,7 @@ class App extends React.Component {
         </div>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz" element={<Quiz score={this.state.score}/>} />
           <Route path="/highscores" element={<Highscore />} />
         </Routes>
       </Router>
