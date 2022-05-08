@@ -1,6 +1,6 @@
 import React from "react";
 import Collapse from "react-bootstrap/Collapse";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Main extends React.Component {
   state = { dropIn: false };
