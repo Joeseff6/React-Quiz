@@ -1,4 +1,4 @@
-const Choices = ({ selectedQuestion, onChoiceClick, displayNextQuestion }) => {
+const Choices = ({ selectedQuestion, onChoiceClick, displayNextQuestion, updateScore }) => {
   const randomizeChoices = (choices) => {
     let choicesCopy = choices.slice(0);
     let choicesArray = [];
@@ -24,10 +24,7 @@ const Choices = ({ selectedQuestion, onChoiceClick, displayNextQuestion }) => {
       .classList.add("correct");
     let correct = selectedChoice === selectedQuestion.answer;
     setTimeout(() => {
-      // if (correct) {
-      //   let newScore = this.state.score + 1;
-      //   this.setState({ score: newScore });
-      // }
+      updateScore(correct);
       displayNextQuestion();
     }, 1000);
   };

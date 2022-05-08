@@ -6,7 +6,7 @@ import Choices from "../components/Choices";
 import { useLocation } from "react-router-dom";
 import "./Quiz.css";
 
-const Quiz = ({ score }) => {
+const Quiz = ({ score, updateScore }) => {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState({});
 
@@ -27,6 +27,7 @@ const Quiz = ({ score }) => {
 
   const runTimer = () => {
     let time = 5;
+    document.getElementById("timer").innerText = time > 1 ? `Time: ${time} secs` : `Time: ${time} sec`;
     let timerId = setInterval(() => {
       let timerText = time > 1 ? `Time: ${time} secs` : `Time: ${time} sec`;
       if (time === 0) {
@@ -75,7 +76,7 @@ const Quiz = ({ score }) => {
                 <h3 className="text-center">{selectedQuestion.question}</h3>
               </div>
               {Object.keys(selectedQuestion).length ? (
-                <Choices selectedQuestion={selectedQuestion} displayNextQuestion={displayNextQuestion} />
+                <Choices selectedQuestion={selectedQuestion} displayNextQuestion={displayNextQuestion} updateScore={updateScore}/>
               ) : (
                 ""
               )}
