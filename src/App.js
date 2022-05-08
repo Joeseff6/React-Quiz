@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./Pages/Main";
 import Quiz from "./Pages/Quiz";
 import Highscore from "./Pages/Highscore";
+import Error from "./Pages/Error";
 import "./App.css";
 
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
             }
           />
           <Route path="/highscores" element={<Highscore />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     );
