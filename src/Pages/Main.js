@@ -1,16 +1,21 @@
 import React from "react";
 import Collapse from "react-bootstrap/Collapse";
 import { Link } from "react-router-dom";
-
 class Main extends React.Component {
-  state = { dropIn: false };
+  state = { dropIn: false, countdown: false };
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({ dropIn: true });
     }, 750);
   }
-  
+
+  onStartClick = () => {
+    console.log("hello");
+    console.log(this.state.dropIn);
+    this.setState({ dropIn: false });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -23,14 +28,17 @@ class Main extends React.Component {
           </div>
         </div>
         <Collapse in={this.state.dropIn}>
-          <React.Fragment>
-            <Link className="btn option-button d-block m-auto mb-5" to="/quiz">
+          <div>
+            <button
+              className="btn option-button d-block m-auto mb-5"
+              onClick={this.onStartClick}
+            >
               Start Quiz
-            </Link>
+            </button>
             <Link className="btn option-button d-block m-auto" to="/highscores">
               Highscore Page
             </Link>
-          </React.Fragment>
+          </div>
         </Collapse>
       </React.Fragment>
     );
