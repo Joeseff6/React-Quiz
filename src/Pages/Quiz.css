@@ -2,7 +2,7 @@ span {
   font-size: x-large; 
 }
 
-#question {
+#questionBox {
   background-color: #FF6947;
   border-radius: 36px;
 }
@@ -26,7 +26,7 @@ span {
   cursor: pointer;
 }
 
-h3, .choice {
+#question, .choice {
   color: #FFDED6;
   font-family: 'Lato', sans-serif;
 }
