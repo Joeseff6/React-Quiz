@@ -3,14 +3,16 @@ import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import selectQuestion from "../helper/selectQuestion";
 import Choices from "../components/Choices";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Quiz.css";
 
 const Quiz = ({ score, updateScore }) => {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState({});
+  let navigate = useNavigate();
 
   useEffect(async () => {
+    console.log(performance.getEntries()[0])
     let response = await axios.get("http://localhost:5000/questions");
     let fetchedQuestions = response.data;
     let pickedQuestion = selectQuestion(fetchedQuestions);
@@ -26,12 +28,13 @@ const Quiz = ({ score, updateScore }) => {
   }, [questions]);
 
   const runTimer = () => {
-    let time = 5;
+    let time = 60;
     document.getElementById("timer").innerText = time > 1 ? `Time: ${time} secs` : `Time: ${time} sec`;
     let timerId = setInterval(() => {
       let timerText = time > 1 ? `Time: ${time} secs` : `Time: ${time} sec`;
       if (time === 0) {
         clearInterval(timerId);
+        navigate("/highscores");
       }
       document.getElementById("timer").innerText = timerText;
       time--;
@@ -69,11 +72,11 @@ const Quiz = ({ score, updateScore }) => {
                 </div>
               </div>
               <div
-                id="question"
+                id="questionBox"
                 className="mb-3 py-5 d-flex justify-content-center align-items-center"
                 data-index={selectedQuestion.index}
               >
-                <h3 className="text-center">{selectedQuestion.question}</h3>
+                <h3 className="text-center" id="question">{selectedQuestion.question}</h3>
               </div>
               {Object.keys(selectedQuestion).length ? (
                 <Choices selectedQuestion={selectedQuestion} displayNextQuestion={displayNextQuestion} updateScore={updateScore}/>
