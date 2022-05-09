@@ -16,7 +16,7 @@ class Highscore extends React.Component{
       <>
         <div className="row justify-content-center">
           <h2 className="text-center">Enter your initials</h2>
-          <h3 className="text-center">(2 to 3 characters!)</h3>
+          <h3 className="text-center">(2 to 3 characters! Alphabetical characters only.)</h3>
         </div>
         <input className="m-auto d-block text-center" type="text" id="initials" name="initials" value={this.state.initials} onChange={(e) => this.onInputChange(e)} minLength={2} maxLength={3}/>
       </>
