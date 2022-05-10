@@ -21,7 +21,7 @@ const Quiz = ({ score, updateScore }) => {
     runTimer();
   }, []);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (document.querySelector(".correct")) {
       document.querySelector(".correct").classList.remove("correct");
     }
@@ -44,6 +44,7 @@ const Quiz = ({ score, updateScore }) => {
   const displayNextQuestion = () => {
     let questionsCopy = questions.slice(0);
     questionsCopy.splice(selectedQuestion.index, 1);
+    if (!questionsCopy.length) navigate("/highscores");
     let pickedQuestion = selectQuestion(questionsCopy);
     setQuestions(questionsCopy);
     setSelectedQuestion(pickedQuestion);
