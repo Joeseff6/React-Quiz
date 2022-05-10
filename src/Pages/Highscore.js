@@ -7,7 +7,7 @@ class Highscore extends React.Component{
   onInputChange = (e) => {
     let key = e.nativeEvent.data;
     if (/\W/.test(key) || /\d/.test(key)) return;
-    let newInput = e.target.value;
+    let newInput = e.target.value.toUpperCase();
     this.setState({ initials: newInput});
   }
 
